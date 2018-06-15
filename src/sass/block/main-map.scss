@@ -1,0 +1,108 @@
+.main-map {
+  @include container-fluid();
+
+  display: none;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &.active {
+    display: block;
+  }
+}
+
+.main-map__wrap {
+  width: 100%;
+}
+
+.main-map__wrap-title {
+  margin: 0 0 50px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 52px;
+  color: #26272d;
+}
+
+.main-map__wrap-description {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.main-map__wrap-partners-title {
+  margin: 40px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 22px;
+  color: #26272d;
+  text-transform: uppercase;
+}
+
+.main-map__wrap-partners {
+  display: flex;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-map__wrap-partners-item {
+  display: inline-block;
+  max-width: 125px;
+
+  a {
+    transition: 0.3s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    opacity: 0.8;
+  }
+
+  a:active {
+    opacity: 0.5;
+  }
+}
+
+.main-map__wrap-partners-item:last-of-type {
+  max-width: 138px;
+  margin-left: 30px;
+}
+
+.main-map__map {
+  margin-top: 20px;
+}
+
+@include respond-to("mama-bear") {
+  .main-map.active {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-map__wrap {
+    width: 40.017%;
+  }
+
+  .main-map__wrap-partners-item {
+    width: 26.5957%;
+  }
+
+  .main-map__wrap-partners-item:last-of-type {
+    width: 29.317%;
+  }
+
+  .main-map__map {
+    width: 55%;
+  }
+
+  .main-map__map {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      max-width: 994px;
+    }
+  }
+}

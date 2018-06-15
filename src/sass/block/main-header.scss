@@ -1,0 +1,471 @@
+.main-header {
+  @include background-image-retina("../img/bg-header", "jpg", 100%, auto);
+
+  position: relative;
+  padding-top: 122px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.main-header__nav {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+  transition: 0.3s ease-in-out;
+}
+
+.main-header__nav-wrap {
+  position: relative;
+  z-index: 1000;
+}
+
+@keyframes navFixed {
+  from {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.main-header__nav.fixed {
+  background-color: #f3f3f5;
+  box-shadow: 0 2px 4px 0 rgba(61, 61, 62, 0.15);
+  animation: navFixed 0.5s ease-in-out;
+}
+
+.main-header__nav.hidden {
+  .main-header__nav-list {
+    display: none;
+  }
+
+  .main-header__sub-nav {
+    display: none;
+  }
+}
+
+@include respond-to("baby-bear-only") {
+  .main-header__nav.active {
+    background-color: #f3f3f5;
+    box-shadow: 0 2px 4px 0 rgba(61,61,62,0.15);
+
+    .main-header__nav-wrap {
+      flex-wrap: wrap;
+    }
+
+    .main-header__nav-btn {
+      order: 1;
+    }
+
+    .main-header__nav-logo {
+      order: 2;
+    }
+
+    .main-header__nav-list {
+      order: 3;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &:first-of-type {
+        margin-top: 20px;
+      }
+    }
+
+    .main-header__nav-item {
+      text-align: center;
+    }
+
+    .main-header__nav-link {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      color: #26272d;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-top: 1px solid rgba(140, 143, 148, 0.2);
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        background-color: #e4e4e6;
+      }
+    }
+
+    .main-header__nav-link--app {
+      position: relative;
+      display: inline-block;
+      width: auto;
+      margin: 10px auto 0;
+      padding: 10px 30px 10px 45px;
+      color: #fff;
+
+      .icon-apple {
+        position: absolute;
+        top: 7px;
+        left: 20px;
+        display: inline-block;
+        width: 17px;
+        height: 20px;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: #266acc;
+      }
+    }
+
+    .main-header__sub-nav {
+      display: none;
+    }
+  }
+}
+
+
+.main-header__nav-wrap {
+  @include container-fluid();
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 20px 4.6875%;
+}
+
+.main-header__nav-btn {
+  position: relative;
+  width: 20px;
+  height: 12px;
+  overflow: hidden;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    span {
+      background-color: #8c8f94;
+
+      &::before,
+      &::after {
+        background-color: #8c8f94;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    font-size: 0;
+    text-indent: -9999px;
+    background-color: #000;
+    transition: 0.3s ease-in-out;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transition: 0.3s ease-in-out;
+    }
+
+    &::before {
+      top: -5px;
+    }
+
+    &::after {
+      bottom: -5px;
+    }
+  }
+}
+
+.main-header__nav-btn.is-active {
+  span {
+    background: none;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.main-header__nav-logo {
+  margin: 0 auto;
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+.main-header__description {
+  @include container-fluid();
+
+  max-height: 640px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.main-header__description-question {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 56px;
+  text-align: center;
+  color: #26272d;
+}
+
+.main-header__description-desc {
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #8c8f94;
+}
+
+.main-header__description-btn {
+  position: relative;
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 39px 12px 57px;
+  font-size: 16px;
+  color: #26272d;
+  background-color: transparent;
+  border: 1px solid rgba(38, 39, 45, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    border: 5px solid transparent;
+    border-left-color: #000;
+    transform: translateY(-50%);
+  }
+
+  &:hover,
+  &:focus {
+    border-color: rgba(38, 39, 45, 0.5);
+  }
+
+  &:active {
+    &::before {
+      opacity: 0.7;
+    }
+  }
+}
+
+.main-header__description-iphone {
+  display: block;
+  margin: 5% auto 0;
+}
+
+@include respond-to("mama-bear") {
+  @include container-fluid();
+
+  .main-header__nav.hidden,
+  .main-header__nav.active {
+    .main-header__nav-btn {
+      order: 1;
+      margin-right: 3%;
+    }
+
+    .main-header__nav-list {
+      display: block;
+      order: 2;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .main-header__nav-item {
+      display: inline-block;
+      vertical-align: middle;
+
+      & + li {
+        margin-left: 15px;
+      }
+    }
+
+    .main-header__nav-link {
+      position: relative;
+      padding: 5px 0;
+      font-size: 16px;
+      color: #26272d;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #26272d;
+        transition: 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          width: 100%;
+        }
+      }
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+
+    .main-header__nav-link--help {
+      color: rgba(27, 28, 30, 0.4);
+
+      &::before {
+        background-color: rgba(27, 28, 30, 0.4);
+      }
+    }
+
+    .main-header__nav-link--app {
+      padding: 5px 15px 5px 30px;
+      color: #fff;
+
+      .icon-apple {
+        position: absolute;
+        top: 2px;
+        left: 8px;
+        width: 17px;
+        height: 20px;
+
+        fill: #fff;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: #266acc;
+      }
+    }
+
+    .main-header__nav-logo {
+      order: 3;
+    }
+
+    .main-header__nav-list--right {
+      order: 4;
+    }
+  }
+
+  .main-header__description-desc {
+    width: 75%;
+    margin: 40px auto 0;
+  }
+
+  .main-header__nav.active {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #f3f3f5;
+    box-shadow: 0 2px 4px 0 rgba(61,61,62,0.15);
+
+    .main-header__nav-wrap {
+      flex-wrap: wrap;
+    }
+
+    .main-header__sub-nav {
+      display: flex;
+      justify-content: space-between;
+      order: 5;
+      width: 70%;
+    }
+
+    .main-header__sub-nav-wrap {
+      width: 30%;
+      margin-top: 20px;
+    }
+
+    .main-header__sub-nav-title {
+      font-size: 14px;
+      line-height: 22px;
+      color: #26272d;
+    }
+
+    .main-header__sub-nav-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .main-header__sub-nav-link {
+      position: relative;
+      padding: 5px 0;
+      font-size: 12px;
+      color: #8c8f94;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #8c8f94;
+        transition: 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          width: 100%;
+        }
+      }
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .main-header__description {
+    max-height: 610px;
+  }
+
+  .main-header__description-iphone {
+    max-width: 369px;
+    margin-top: 4%;
+  }
+}

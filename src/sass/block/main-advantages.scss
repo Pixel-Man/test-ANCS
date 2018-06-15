@@ -1,0 +1,59 @@
+.main-advantages {
+  @include container-fluid();
+
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.main-advantages__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-advantages__item {
+  & + li {
+    margin-top: 25px;
+  }
+}
+
+.main-advantages__item-img {
+  width: 42px;
+  height: 51px;
+}
+
+.main-advantages__item-title {
+  margin: 25px 0 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 34px;
+  color: #26272d;
+}
+
+.main-advantages__item-description {
+  margin: 25px 0 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 26px;
+  color: #8c8f94;
+}
+
+@include respond-to('mama-bear') {
+  .main-advantages__list {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .main-advantages__item {
+    width: 45%;
+  }
+
+  .main-advantages__item + li {
+    margin: 0;
+  }
+}

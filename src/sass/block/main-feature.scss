@@ -1,0 +1,102 @@
+@include respond-to("baby-bear-only") {
+  .main-feature {
+    @include container-fluid();
+  }
+}
+
+.main-feature {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.main-feature__img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.main-feature__wrap-title {
+  margin: 20px 0 30px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 52px;
+  color: #26272d;
+}
+
+.main-feature__wrap-description {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.main-feature__wrap-link {
+  position: relative;
+  margin-top: 30px;
+  padding-right: 50px;
+
+  .icon-arrow-right {
+    position: absolute;
+    top: 12px;
+    right: 19px;
+    width: 13px;
+    height: 12px;
+
+    fill: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #266acc;
+  }
+}
+
+.main-feature__wrap-btn-more {
+  margin-left: 16px;
+  font-size: 16px;
+  color: #26272d;
+  background-color: transparent;
+  border: 1px solid rgba(38,39,45,0.1);
+
+  &:hover,
+  &:focus {
+    border-color: rgba(38,39,45,0.5);
+  }
+}
+
+@include respond-to("mama-bear") {
+  .main-feature {
+    @include container-fluid();
+
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 170px;
+  }
+
+  .main-feature__img {
+    position: relative;
+    width: 50%;
+
+    img {
+      position: absolute;
+      top: 20%;
+      right: 0;
+      max-width: 600px;
+    }
+  }
+
+  .main-feature__wrap {
+    width: 50%;
+    margin-top: 35px;
+    margin-left: 6.4%;
+  }
+}
+
+@include respond-to("papa-bear") {
+  .main-feature__img {
+    img {
+      top: 0;
+      max-width: 650px;
+    }
+  }
+}

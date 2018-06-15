@@ -1,0 +1,151 @@
+.main-interface {
+  padding-top: 80px;
+  padding-bottom: 130px;
+  background-color: #f5f5f8;
+}
+
+.main-interface__title {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 52px;
+  text-align: center;
+  color: #26272d;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 50px;
+    height: 2px;
+    background-color: #267df4;
+    transform: translateX(-50%);
+  }
+}
+
+.main-interface__description {
+  margin: 80px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  background: none;
+
+  &:last-of-type {
+    margin: 40px 0 0;
+  }
+}
+
+.main-interface__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-interface__item {
+  flex-shrink: 0;
+  width: 28.2051%;
+  max-width: 330px;
+  margin: 0 -7px;
+
+  &:nth-child(3) {
+    width: 31.5384%;
+    max-width: 369px;
+  }
+}
+
+.main-interface__get-it-title {
+  margin: 15px 0 0;
+  padding: 0;
+  font-size: 42px;
+  line-height: 52px;
+  text-align: center;
+  color: #3a3d4b;
+}
+
+.main-interface__send-form {
+  position: relative;
+  width: 80%;
+  margin: 40px auto 0;
+}
+
+.main-interface__send-form-mail {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 25px;
+  font-size: 16px;
+  color: #3a3d4b;
+  background: none;
+  border: 1px solid rgba(34, 35, 40, 0.2);
+  border-radius: 25px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    border: 1px solid rgba(34, 35, 40, 0.5);
+  }
+}
+
+.main-interface__send-form-btn {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px 55px 13px 30px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6fc754;
+  transition: 0.3s ease-in-out;
+
+  .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    width: 13px;
+    height: 11px;
+    transform: translateY(-50%);
+
+    fill: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #61b954;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+@include respond-to("mama-bear") {
+  .main-interface__send-form {
+    width: 42.9059%;
+  }
+
+  .main-interface__send-form-mail {
+    padding: 15px 20px 15px 25px;
+  }
+}
+
+@include respond-to('papa-bear') {
+  .main-interface__send-form-mail {
+    padding: 15px 200px 15px 25px;
+  }
+
+  .main-interface__send-form-btn {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    width: auto;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+}

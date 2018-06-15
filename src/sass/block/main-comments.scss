@@ -1,0 +1,208 @@
+.main-comments {
+  @include container-fluid();
+
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.main-comments__user-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  height: 137px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-comments__user-img {
+  position: relative;
+  z-index: 2;
+  width: 90px;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: 0.3s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -20px;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    background: url("../img/user-shadow.png") no-repeat;
+    background-size: cover;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  &.active {
+    flex-shrink: 0;
+    width: 130px;
+    opacity: 1;
+
+    &::after {
+      width: 198px;
+      height: 198px;
+      visibility: visible;
+    }
+  }
+}
+
+.main-comments__wrap-list {
+  width: 90%;
+  height: 100%;
+  margin: 50px auto 0;
+  overflow: hidden;
+  cursor: default;
+}
+
+.main-comments__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-comments__item-title {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  color: #26272d;
+}
+
+.main-comments__item-description {
+  margin: 30px 0 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.main-comments__item-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 150px;
+  margin: 20px auto 0;
+
+  input {
+    display: none;
+
+    &:checked ~ label svg {
+      fill: #f2bc3b;
+    }
+  }
+
+  label {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:hover svg,
+    &:focus svg {
+      fill: #f2bc3b;
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease-in-out;
+
+    fill: #8c8f94;
+  }
+}
+
+.main-comments__item-rating label {
+  &:hover ~ label svg,
+  &:focus ~ label svg {
+    fill: #f2bc3b;
+  }
+}
+
+.main-comments__item-user {
+  margin: 40px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  color: #26272d;
+  text-transform: uppercase;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+}
+
+.swiper-pagination {
+  visibility: hidden;
+}
+
+@include respond-to("mama-bear") {
+  .main-comments__user-list {
+    justify-content: center;
+  }
+
+  .main-comments__user-img {
+    margin: 0 65px;
+  }
+
+  .main-comments__wrap-list {
+    width: 75%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 50%;
+    display: block;
+    width: 80px;
+    height: 70%;
+    background: none;
+    transform: translateY(-50%);
+
+    svg {
+      width: 40%;
+      height: 31%;
+      transition: 0.3s ease-in-out;
+
+      fill: rgba(38, 41, 44, 0.2);
+    }
+
+    &:hover svg {
+      fill: #267df4;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 2%;
+  }
+
+  .swiper-button-next {
+    right: 2%;
+  }
+}
+
+@include respond-to("papa-bear") {
+  .main-comments__wrap-list {
+    width: 51.282%;
+  }
+
+  .swiper-button-prev {
+    left: 7%;
+  }
+
+  .swiper-button-next {
+    right: 7%;
+  }
+}
